@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #e9e9e9;
+    font-family: "Fira Mono", monospace, sans-serif;
+    font-size: 20px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin shadow {
+    box-shadow: -0.3rem -0.3rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem rgba(#000, 0.4);
+}
+
+@mixin shadow-inset {
+    box-shadow: inset -0.3rem -0.3rem 0.5rem #fff, inset 0.3rem 0.3rem 0.5rem rgba(#000, 0.4);
+}
+
+.neumorphic {
+    @include shadow;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    width: 20rem;
+
+    .input, button {
+        outline: none;
+    }
+
+    .input {
+        @include shadow-inset;
+        width: 15.6rem;
+        height: 3rem;
+        padding: 0.8rem 1.6rem;
+        text-align: right;
+        border: none;
+        border-radius: 1.5rem;
+        text-shadow: -0.05rem -0.05rem 0.1rem #fff, 0.1rem 0.1rem 0.1rem rgba(#000, 0.4);
+    }
+
+    .keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    button {
+       @include shadow;
+       width: 3rem;
+       height: 3rem;
+       border: none;
+       border-radius: 1.5rem;
+       cursor: pointer;
+       background: #e9e9e9;
+       color: #000;
+
+       &:hover, &:active {
+           background: #ccc;
+       }
+
+       &:active {
+           @include shadow-inset;
+       }
+    }
+
+    .op__key, .eq__key {
+        color: #ff652f;
+    }
+}
+
+.frosted {
+    padding: 2rem;
+    width: 20rem;
+    box-shadow: 0 0 1rem 0 rgba($color: #000, $alpha: 0.4);
+    background: url("background-2.jpg") no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+
+    .input {
+        width: 15.6rem;
+        height: 3rem;
+        padding: 0.8rem 1.6rem;
+        text-align: right;
+        font-size: 1.2rem;
+    }
+
+    .keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0.8rem;
+        margin-top: 1rem;
+        background: inherit;
+    }
+
+    span {
+        background: inherit;
+    }
+
+    button {
+       width: 3rem;
+       height: 3rem;
+       cursor: pointer;
+       color: #000;
+
+       &:hover {
+           background: rgba(#fff, 0.2);
+       }
+
+       &:active {
+           background: rgba(#ccc, 0.2);
+       }
+    }
+
+    button, .input {
+        outline: none;
+        border: none;
+        box-shadow: 0 0 1rem 0 rgba($color: #000, $alpha: 0.4);
+        background: inherit;
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 0 200px rgba(#fff, 0.5);
+            filter: blur(10px);
+        }
+    }
+
+    .op__key, .eq__key {
+        color: #ff652f;
+    }
+}
+
+.calculator {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 30%;
+    background-color: lightgrey;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h4 {
+        text-align: center;
+        background-color: lightgrey;
+        margin-bottom: 3rem;
+    }
+
+    button {
+        width: 100%;
+        height: 2rem;
+        max-width: 250px;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+        background-color: cornflowerblue;
+        color: white;
+        margin: 0.5rem 0;
+
+        &:hover {
+            background: dodgerblue;
+        }
+
+        &:active {
+            color: lightgrey;
+        }
+    }
+}
